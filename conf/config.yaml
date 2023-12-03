@@ -1,0 +1,18 @@
+---
+client_device: 'ios'
+
+# num_clients: 1000 # total number of clients
+num_epochs: 10 # number of local epochs
+batch_size: 10
+num_rounds: 100
+clients_per_round: 2
+
+server:
+  strategy:
+    _target_: fedops.server.mobile_strategy.MobileStrategy
+    client_device: ${client_device}
+    fraction_fit: 0.00001 # because we want the number of clients to sample on each round to be solely defined by min_fit_clients
+    fraction_evaluate: 0.000001
+    min_fit_clients: ${clients_per_round}
+    min_available_clients: ${clients_per_round}
+    min_evaluate_clients: ${clients_per_round}
