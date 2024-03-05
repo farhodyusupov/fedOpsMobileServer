@@ -4,7 +4,7 @@ client_device: 'android'
 # num_clients: 1000 # total number of clients
 num_epochs: 5 # number of local epochs
 batch_size: 10
-num_rounds: 3
+num_rounds: 15
 clients_per_round: 1
 
 server:
